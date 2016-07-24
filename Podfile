@@ -6,5 +6,5 @@ target 'JustListen' do
   use_frameworks!
 
   # Pods for JustListen
-  pod 'YouTubePlayer'
+  pod "youtube-ios-player-helper", "~> 0.1.4"
 end
