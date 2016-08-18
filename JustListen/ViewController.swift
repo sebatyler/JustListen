@@ -11,16 +11,12 @@ import youtube_ios_player_helper
 
 class ViewController: UIViewController {
     @IBOutlet weak var playerView: YTPlayerView!
-    @IBOutlet weak var playButton: UIButton!
-    
-    @IBAction func play(sender: UIButton) {
-        self.playerView.playVideo()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.playerView.loadWithVideoId("rUSddpvB4X0")
+        let playerVars: [String: AnyObject] = ["origin": "http://www.youtube.com", "playsinline": 1]
+        self.playerView.loadWithVideoId("rUSddpvB4X0", playerVars: playerVars)
     }
 
     override func didReceiveMemoryWarning() {

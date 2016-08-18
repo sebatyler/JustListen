@@ -21,13 +21,6 @@
                                 <rect key="frame" x="20" y="66" width="560" height="332"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hr4-hq-cDo">
-                                <rect key="frame" x="29" y="10" width="52" height="30"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchDown" id="MwD-ep-dUR"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -38,7 +31,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="playButton" destination="hr4-hq-cDo" id="qz2-Ak-Oep"/>
                         <outlet property="playerView" destination="lfR-OM-LLl" id="vjL-7s-5tx"/>
                     </connections>
                 </viewController>
