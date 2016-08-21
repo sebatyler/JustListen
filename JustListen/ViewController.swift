@@ -13,7 +13,7 @@ import Alamofire
 func shuffle(array: NSArray) -> NSArray {
     let newArray : NSMutableArray = NSMutableArray(array: array)
     let count : NSInteger = newArray.count
-    
+
     for i in 0 ..< count {
         let remainingCount = count - i
         //figre out error below
