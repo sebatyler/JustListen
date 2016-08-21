@@ -9,6 +9,7 @@
 import UIKit
 import youtube_ios_player_helper
 import Alamofire
+import AVFoundation
 
 func shuffle(array: NSArray) -> NSArray {
     let newArray : NSMutableArray = NSMutableArray(array: array)
@@ -36,7 +37,8 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         self.getPlaylist()
         self.playerView.delegate = self
-    }
+        self.enableBackgroundPlay()
+     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,6 +75,19 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
     func playerView(playerView: YTPlayerView, didChangeToState state: YTPlayerState) {
         if (state == YTPlayerState.Ended) {
             self.loadNext()
+        }
+    }
+    
+    private func enableBackgroundPlay() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
     }
 }
