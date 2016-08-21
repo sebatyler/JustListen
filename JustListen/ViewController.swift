@@ -10,6 +10,18 @@ import UIKit
 import youtube_ios_player_helper
 import Alamofire
 
+func shuffle(array: NSArray) -> NSArray {
+    let newArray : NSMutableArray = NSMutableArray(array: array)
+    let count : NSInteger = newArray.count
+    
+    for i in 0 ..< count {
+        let remainingCount = count - i
+        //figre out error below
+        let exchangeIndex = i + Int(arc4random_uniform(UInt32(remainingCount)))
+        newArray.exchangeObjectAtIndex(i, withObjectAtIndex: exchangeIndex)
+    }
+    return NSArray(array: newArray)
+}
 
 class ViewController: UIViewController, YTPlayerViewDelegate {
     @IBOutlet weak var playerView: YTPlayerView!
@@ -35,7 +47,7 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
         Alamofire.request(.GET, self.playlistUrl).validate().responseJSON { response in
             switch response.result {
             case .Success(let JSON):
-                self.playlist = JSON.objectForKey("playlist") as? NSArray
+                self.playlist = shuffle((JSON.objectForKey("playlist") as? NSArray)!)
                 self.url = JSON.objectForKey("url") as? String
                 self.loadNext()
             case .Failure(let error):
