@@ -24,7 +24,31 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JustListen" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJe-IK-OPe">
                                 <rect key="frame" x="261" y="28" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-Jj-9gj">
+                                <rect key="frame" x="14" y="467" width="347" height="29"/>
+                                <segments>
+                                    <segment title="Previous"/>
+                                    <segment title="Pause/Play"/>
+                                    <segment title="Stop"/>
+                                    <segment title="Next"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changePlayerControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="hnH-zb-rLY"/>
+                                </connections>
+                            </segmentedControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xMN-Ev-RtB">
+                                <rect key="frame" x="89" y="23" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeRepeatSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="PxC-iK-sEa"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qci-KY-UH8">
+                                <rect key="frame" x="25" y="28" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -37,7 +61,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="playerControl" destination="2rQ-Jj-9gj" id="fvv-HQ-yzc"/>
                         <outlet property="playerView" destination="lfR-OM-LLl" id="vjL-7s-5tx"/>
+                        <outlet property="repeatSwitch" destination="xMN-Ev-RtB" id="Xjo-1g-4XM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

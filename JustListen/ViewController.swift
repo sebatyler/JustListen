@@ -26,11 +26,42 @@ func shuffle(array: NSArray) -> NSArray {
 
 class ViewController: UIViewController, YTPlayerViewDelegate {
     @IBOutlet weak var playerView: YTPlayerView!
+    @IBOutlet weak var playerControl: UISegmentedControl!
+    @IBOutlet weak var repeatSwitch: UISwitch!
+    
     var playlist: NSArray?
     var url: String?
     var playlistIdx = -1
+    var repeatSong = false
     let playerVars: [String: AnyObject] = ["origin": "http://www.youtube.com", "playsinline": 1]
     let playlistUrl = "https://www.letmedoctor.com/playlist.json"
+
+    @IBAction func changeRepeatSwitch(sender: UISwitch) {
+        self.repeatSong = sender.on
+    }
+    
+    @IBAction func changePlayerControl(sender: UISegmentedControl) {
+        title = sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)
+        
+        switch title! {
+        case "Previous":
+            self.loadSong(false)
+        case "Pause/Play":
+            if (self.playerView.playerState() == YTPlayerState.Playing) {
+                self.playerView.pauseVideo()
+            }
+            else {
+                self.playerView.playVideo()
+            }
+        case "Stop":
+            self.playerView.stopVideo()
+        case "Next":
+            self.loadSong()
+        default:
+            return
+        }
+        sender.selectedSegmentIndex = -1
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,21 +82,24 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
             case .Success(let JSON):
                 self.playlist = shuffle((JSON.objectForKey("playlist") as? NSArray)!)
                 self.url = JSON.objectForKey("url") as? String
-                self.loadNext()
+                self.loadSong()
             case .Failure(let error):
                 print(error)
             }
         }
     }
     
-    private func loadNext() {
+    private func loadSong(next: Bool = true) {
         var idx = playlistIdx
-        idx += 1
+        idx += next ? 1 : -1
+        if (idx < 0) {
+            idx = 0
+        }
         idx %= (playlist?.count)!
+        
         let videoId = playlist?.objectAtIndex(idx).objectForKey("id") as? String
         self.playlistIdx = idx
         self.playerView.loadWithVideoId(videoId!, playerVars: self.playerVars)
-        
     }
     
     func playerViewDidBecomeReady(playerView: YTPlayerView) {
@@ -74,7 +108,12 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
     
     func playerView(playerView: YTPlayerView, didChangeToState state: YTPlayerState) {
         if (state == YTPlayerState.Ended) {
-            self.loadNext()
+            if (self.repeatSong) {
+                self.playerView.playVideo()
+            }
+            else {
+                self.loadSong()
+            }
         }
     }
     
