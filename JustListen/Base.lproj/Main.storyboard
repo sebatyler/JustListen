@@ -18,29 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfR-OM-LLl" customClass="YTPlayerView">
-                                <rect key="frame" x="20" y="57" width="560" height="332"/>
+                                <rect key="frame" x="20" y="57" width="560" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-Jj-9gj">
-                                <rect key="frame" x="14" y="467" width="347" height="29"/>
-                                <segments>
-                                    <segment title="Previous"/>
-                                    <segment title="Pause/Play"/>
-                                    <segment title="Stop"/>
-                                    <segment title="Next"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changePlayerControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="hnH-zb-rLY"/>
-                                </connections>
-                            </segmentedControl>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xMN-Ev-RtB">
-                                <rect key="frame" x="89" y="23" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xMN-Ev-RtB">
+                                <rect key="frame" x="77" y="23" width="51" height="31"/>
                                 <connections>
                                     <action selector="changeRepeatSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="PxC-iK-sEa"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qci-KY-UH8">
-                                <rect key="frame" x="25" y="28" width="61" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qci-KY-UH8">
+                                <rect key="frame" x="20" y="28" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -51,27 +39,34 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-Jj-9gj">
+                                <rect key="frame" x="20" y="552" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Previous"/>
+                                    <segment title="Pause/Play"/>
+                                    <segment title="Stop"/>
+                                    <segment title="Next"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changePlayerControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="hnH-zb-rLY"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pJe-IK-OPe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0l3-pA-P9G"/>
-                            <constraint firstItem="lfR-OM-LLl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4KF-tB-M2w"/>
-                            <constraint firstItem="pJe-IK-OPe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="5dD-m9-PxA"/>
-                            <constraint firstItem="Qci-KY-UH8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="7oA-6C-ZJV"/>
-                            <constraint firstAttribute="trailing" secondItem="pJe-IK-OPe" secondAttribute="trailing" constant="20" id="9qy-KF-mou"/>
-                            <constraint firstItem="Qci-KY-UH8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="BEg-6E-6aM"/>
-                            <constraint firstItem="xMN-Ev-RtB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="Bto-1O-ASm"/>
-                            <constraint firstItem="pJe-IK-OPe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FjY-d3-mwo"/>
-                            <constraint firstItem="pJe-IK-OPe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="QVS-eb-791"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lfR-OM-LLl" secondAttribute="trailing" id="SzL-te-Bie"/>
-                            <constraint firstItem="xMN-Ev-RtB" firstAttribute="leading" secondItem="Qci-KY-UH8" secondAttribute="trailing" constant="3" id="Wod-YC-aU4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pJe-IK-OPe" secondAttribute="trailing" id="ZfK-wA-az5"/>
-                            <constraint firstItem="xMN-Ev-RtB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="aWA-T4-bYG"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lfR-OM-LLl" secondAttribute="bottom" constant="211" id="hMk-6R-p3r"/>
-                            <constraint firstItem="pJe-IK-OPe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="m9H-X5-bkY"/>
-                            <constraint firstItem="pJe-IK-OPe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="omt-qE-gkD"/>
-                            <constraint firstItem="lfR-OM-LLl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="uj2-9e-WdN"/>
-                            <constraint firstItem="pJe-IK-OPe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="zGx-wi-tuK"/>
+                            <constraint firstItem="Qci-KY-UH8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4e7-K9-5ox"/>
+                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="trailing" secondItem="pJe-IK-OPe" secondAttribute="trailing" id="JoX-nx-mtb"/>
+                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="top" secondItem="lfR-OM-LLl" secondAttribute="bottom" constant="8" id="Nf7-iO-Qee"/>
+                            <constraint firstItem="pJe-IK-OPe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="UBK-yF-exZ"/>
+                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="leading" secondItem="lfR-OM-LLl" secondAttribute="leading" id="i0Y-IS-B9u"/>
+                            <constraint firstItem="lfR-OM-LLl" firstAttribute="trailing" secondItem="pJe-IK-OPe" secondAttribute="trailing" id="jiL-X7-4MQ"/>
+                            <constraint firstItem="Qci-KY-UH8" firstAttribute="centerY" secondItem="xMN-Ev-RtB" secondAttribute="centerY" id="l32-7b-PAO"/>
+                            <constraint firstItem="Qci-KY-UH8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ofH-O5-Tic"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2rQ-Jj-9gj" secondAttribute="bottom" constant="20" id="pKV-Wd-9Yd"/>
+                            <constraint firstItem="xMN-Ev-RtB" firstAttribute="leading" secondItem="Qci-KY-UH8" secondAttribute="trailing" constant="3" id="sSh-T3-XLa"/>
+                            <constraint firstItem="lfR-OM-LLl" firstAttribute="top" secondItem="Qci-KY-UH8" secondAttribute="bottom" constant="8" id="seM-ak-Rhe"/>
+                            <constraint firstItem="lfR-OM-LLl" firstAttribute="leading" secondItem="Qci-KY-UH8" secondAttribute="leading" id="tqX-rP-suD"/>
+                            <constraint firstItem="xMN-Ev-RtB" firstAttribute="centerY" secondItem="pJe-IK-OPe" secondAttribute="centerY" id="yU2-uq-L1J"/>
                         </constraints>
                     </view>
                     <connections>
