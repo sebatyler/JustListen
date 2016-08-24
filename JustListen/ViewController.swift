@@ -11,27 +11,36 @@ import youtube_ios_player_helper
 import Alamofire
 import AVFoundation
 
-func shuffle(array: NSArray) -> NSArray {
-    let newArray : NSMutableArray = NSMutableArray(array: array)
-    let count : NSInteger = newArray.count
-
-    for i in 0 ..< count {
-        let remainingCount = count - i
-        //figre out error below
-        let exchangeIndex = i + Int(arc4random_uniform(UInt32(remainingCount)))
-        newArray.exchangeObjectAtIndex(i, withObjectAtIndex: exchangeIndex)
+extension Array {
+    
+    var shuffled: [Element] {
+    
+        var shuffledArray: [Element] = self
+        
+        for i in 0 ..< count {
+            let remainingCount = count - i
+            //figre out error below
+            
+              let exchangeIndex = i + Int(arc4random_uniform(UInt32(remainingCount)))
+        
+            if i != exchangeIndex {
+                swap(&shuffledArray[i], &shuffledArray[exchangeIndex])
+            }
+        }
+        
+        return shuffledArray
     }
-    return NSArray(array: newArray)
 }
+
 
 class ViewController: UIViewController, YTPlayerViewDelegate {
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var playerControl: UISegmentedControl!
     @IBOutlet weak var repeatSwitch: UISwitch!
     
-    var playlist: NSArray?
+    var playlist: [AnyObject]?
     var url: String?
-    var playlistIdx = -1
+    var playlistIdx: Int? = -1
     var repeatSong = false
     let playerVars: [String: AnyObject] = ["origin": "http://www.youtube.com", "playsinline": 1]
     let playlistUrl = "https://www.letmedoctor.com/playlist.json"
@@ -43,7 +52,11 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
     @IBAction func changePlayerControl(sender: UISegmentedControl) {
         title = sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)
         
-        switch title! {
+        guard let title = title else {
+            return
+        }
+        
+        switch title {
         case "Previous":
             self.loadSong(false)
         case "Pause/Play":
@@ -69,18 +82,18 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
         self.getPlaylist()
         self.playerView.delegate = self
         self.enableBackgroundPlay()
-     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func getPlaylist() {
         Alamofire.request(.GET, self.playlistUrl).validate().responseJSON { response in
             switch response.result {
             case .Success(let JSON):
-                self.playlist = shuffle((JSON.objectForKey("playlist") as? NSArray)!)
+                
+                guard let playlist = JSON["playlist"] as? [AnyObject] else {
+                    return
+                }
+                
+                self.playlist = playlist.shuffled
                 self.url = JSON.objectForKey("url") as? String
                 self.loadSong()
             case .Failure(let error):
@@ -90,16 +103,18 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
     }
     
     private func loadSong(next: Bool = true) {
-        var idx = playlistIdx
-        idx += next ? 1 : -1
-        if (idx < 0) {
-            idx = 0
+        if var idx = playlistIdx {
+            idx += next ? 1 : -1
+            if (idx < 0) {
+                idx = 0
+            }
+            idx %= (playlist?.count)!
+            
+            if let videoId = self.playlist?[idx]["id"] as? String {
+                self.playlistIdx = idx
+                self.playerView.loadWithVideoId(videoId, playerVars: self.playerVars)
+            }
         }
-        idx %= (playlist?.count)!
-        
-        let videoId = playlist?.objectAtIndex(idx).objectForKey("id") as? String
-        self.playlistIdx = idx
-        self.playerView.loadWithVideoId(videoId!, playerVars: self.playerVars)
     }
     
     func playerViewDidBecomeReady(playerView: YTPlayerView) {
