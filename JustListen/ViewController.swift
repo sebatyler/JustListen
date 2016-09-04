@@ -61,15 +61,13 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
         switch title {
         case "Previous":
             self.loadSong(false)
-        case "Pause/Play":
-            if (self.playerView.playerState() == YTPlayerState.Playing) {
-                self.playerView.pauseVideo()
-            }
-            else {
-                self.playerView.playVideo()
-            }
+        case "Pause":
+            self.playerView.pauseVideo()
+        case "Play":
+            self.playerView.playVideo()
         case "Stop":
             self.playerView.stopVideo()
+            self.playerControl.setTitle("Play", forSegmentAtIndex: 1)
         case "Next":
             self.loadSong()
         default:
@@ -132,11 +130,22 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
     
     func playerView(playerView: YTPlayerView, didChangeToState state: YTPlayerState) {
         if (state == YTPlayerState.Ended) {
+            self.playerControl.setTitle("Play", forSegmentAtIndex: 1)
             if (self.repeatSong) {
                 self.playerView.playVideo()
             }
             else {
                 self.loadSong()
+            }
+        }
+        else if (state == YTPlayerState.Playing) {
+            if (self.playerControl.titleForSegmentAtIndex(1) != "Pause") {
+                self.playerControl.setTitle("Pause", forSegmentAtIndex: 1)
+            }
+        }
+        else if (state == YTPlayerState.Paused) {
+            if (self.playerControl.titleForSegmentAtIndex(1) != "Play") {
+                self.playerControl.setTitle("Play", forSegmentAtIndex: 1)
             }
         }
     }
