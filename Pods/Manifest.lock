@@ -1,15 +1,43 @@
 PODS:
   - Alamofire (3.4.1)
+  - Firebase/AdMob (3.4.0):
+    - Firebase/Analytics
+    - Google-Mobile-Ads-SDK (= 7.9.1)
+  - Firebase/Analytics (3.4.0):
+    - FirebaseAnalytics (~> 3.3)
+  - Firebase/Core (3.4.0):
+    - Firebase/Analytics
+  - FirebaseAnalytics (3.3.0):
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.2)
+  - FirebaseInstanceID (1.0.8)
+  - Google-Mobile-Ads-SDK (7.9.1)
+  - GoogleInterchangeUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.1.1)
+  - GoogleUtilities (1.3.1):
+    - GoogleSymbolUtilities (~> 1.0)
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - Firebase/AdMob
+  - Firebase/Core
   - youtube-ios-player-helper (~> 0.1.4)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Firebase: 754562547af419cc2f4b15247fee419081924bc2
+  FirebaseAnalytics: 228be2991cb28efb96cdafc4d62f64680e615c69
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  Google-Mobile-Ads-SDK: 575583d7eae25793bb81ad8673737d1b4ecbedc5
+  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
+  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
+  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: c406339f89cfeb7caf8758f30e2e309e12f3fe7d
+PODFILE CHECKSUM: 3bd5f8cdbe036237e3dc5e583e01892d0a9fb385
 
 COCOAPODS: 1.1.0.beta.1

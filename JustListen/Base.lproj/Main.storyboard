@@ -39,7 +39,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EkE-Ro-0dK" userLabel="Ad View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EkE-Ro-0dK" userLabel="Ad View" customClass="GADBannerView">
                                 <rect key="frame" x="20" y="520" width="560" height="65"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -78,6 +78,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="EkE-Ro-0dK" id="RZn-Qk-gCh"/>
                         <outlet property="playerControl" destination="2rQ-Jj-9gj" id="fvv-HQ-yzc"/>
                         <outlet property="playerView" destination="lfR-OM-LLl" id="vjL-7s-5tx"/>
                         <outlet property="repeatSwitch" destination="xMN-Ev-RtB" id="Xjo-1g-4XM"/>

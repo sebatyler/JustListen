@@ -10,6 +10,7 @@ import UIKit
 import youtube_ios_player_helper
 import Alamofire
 import AVFoundation
+import GoogleMobileAds
 
 extension Array {
     
@@ -37,6 +38,7 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var playerControl: UISegmentedControl!
     @IBOutlet weak var repeatSwitch: UISwitch!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     var playlist: [AnyObject]?
     var url: String?
@@ -82,6 +84,13 @@ class ViewController: UIViewController, YTPlayerViewDelegate {
         self.getPlaylist()
         self.playerView.delegate = self
         self.enableBackgroundPlay()
+        self.loadGoogleAdBanner()
+    }
+    
+    private func loadGoogleAdBanner() {
+        bannerView.adUnitID = "ca-app-pub-6928022194889148/9093399514"
+        bannerView.rootViewController = self
+        bannerView.loadRequest(GADRequest())
     }
     
     private func getPlaylist() {
