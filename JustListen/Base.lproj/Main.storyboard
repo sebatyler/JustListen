@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfR-OM-LLl" customClass="YTPlayerView">
-                                <rect key="frame" x="20" y="57" width="560" height="487"/>
+                                <rect key="frame" x="20" y="57" width="560" height="417"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xMN-Ev-RtB">
@@ -39,8 +39,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EkE-Ro-0dK" userLabel="Ad View">
+                                <rect key="frame" x="20" y="520" width="560" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <segmentedControl opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-Jj-9gj">
-                                <rect key="frame" x="20" y="552" width="560" height="29"/>
+                                <rect key="frame" x="20" y="482" width="560" height="29"/>
                                 <segments>
                                     <segment title="Previous"/>
                                     <segment title="Pause/Play"/>
@@ -54,15 +58,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="EkE-Ro-0dK" firstAttribute="trailing" secondItem="2rQ-Jj-9gj" secondAttribute="trailing" id="2m7-tG-jHE"/>
                             <constraint firstItem="Qci-KY-UH8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4e7-K9-5ox"/>
-                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="trailing" secondItem="pJe-IK-OPe" secondAttribute="trailing" id="JoX-nx-mtb"/>
-                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="top" secondItem="lfR-OM-LLl" secondAttribute="bottom" constant="8" id="Nf7-iO-Qee"/>
+                            <constraint firstAttribute="bottom" secondItem="2rQ-Jj-9gj" secondAttribute="bottom" constant="90" id="CRn-Ws-Usm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EkE-Ro-0dK" secondAttribute="bottom" constant="15" id="CmR-oX-eno"/>
+                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="top" secondItem="lfR-OM-LLl" secondAttribute="bottom" constant="8" symbolic="YES" id="JnT-tL-bKr"/>
+                            <constraint firstItem="EkE-Ro-0dK" firstAttribute="top" secondItem="2rQ-Jj-9gj" secondAttribute="bottom" constant="10" id="KwD-Mt-i4B"/>
+                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="leading" secondItem="lfR-OM-LLl" secondAttribute="leading" id="PCL-eq-x77"/>
                             <constraint firstItem="pJe-IK-OPe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="UBK-yF-exZ"/>
-                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="leading" secondItem="lfR-OM-LLl" secondAttribute="leading" id="i0Y-IS-B9u"/>
+                            <constraint firstItem="EkE-Ro-0dK" firstAttribute="leading" secondItem="2rQ-Jj-9gj" secondAttribute="leading" id="V9N-dZ-eQH"/>
                             <constraint firstItem="lfR-OM-LLl" firstAttribute="trailing" secondItem="pJe-IK-OPe" secondAttribute="trailing" id="jiL-X7-4MQ"/>
                             <constraint firstItem="Qci-KY-UH8" firstAttribute="centerY" secondItem="xMN-Ev-RtB" secondAttribute="centerY" id="l32-7b-PAO"/>
+                            <constraint firstItem="2rQ-Jj-9gj" firstAttribute="trailing" secondItem="lfR-OM-LLl" secondAttribute="trailing" id="l3B-jW-c8O"/>
                             <constraint firstItem="Qci-KY-UH8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ofH-O5-Tic"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2rQ-Jj-9gj" secondAttribute="bottom" constant="20" id="pKV-Wd-9Yd"/>
                             <constraint firstItem="xMN-Ev-RtB" firstAttribute="leading" secondItem="Qci-KY-UH8" secondAttribute="trailing" constant="3" id="sSh-T3-XLa"/>
                             <constraint firstItem="lfR-OM-LLl" firstAttribute="top" secondItem="Qci-KY-UH8" secondAttribute="bottom" constant="8" id="seM-ak-Rhe"/>
                             <constraint firstItem="lfR-OM-LLl" firstAttribute="leading" secondItem="Qci-KY-UH8" secondAttribute="leading" id="tqX-rP-suD"/>
