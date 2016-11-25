@@ -7,7 +7,7 @@ target 'JustListen' do
 
   # Pods for JustListen
   pod "youtube-ios-player-helper", "~> 0.1.4"
-  pod 'Alamofire', '~> 3.4'
+  pod 'Alamofire', '~> 4.0'
 
   # admob
   pod 'Firebase/Core'

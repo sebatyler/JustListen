@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.5.1)
+  - Alamofire (4.2.0)
   - Firebase/AdMob (3.10.0):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (= 7.15.0)
@@ -26,13 +26,13 @@ PODS:
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.4)
+  - Alamofire (~> 4.0)
   - Firebase/AdMob
   - Firebase/Core
   - youtube-ios-player-helper (~> 0.1.4)
 
 SPEC CHECKSUMS:
-  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Firebase: 387f37c7dca894a02708da9ff35ba147040eae9e
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseCore: 1e383fdfe37b6b5d6ff88e84204bdee30276af0f
@@ -43,6 +43,6 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 3bd5f8cdbe036237e3dc5e583e01892d0a9fb385
+PODFILE CHECKSUM: 5288efb7059adbb3244efebbcdf1973d578a6aff
 
 COCOAPODS: 1.1.0.beta.1
