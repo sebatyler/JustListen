@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		52F2E8CD1E31BC95BEA723B2 /* Pods-JustListen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustListen.release.xcconfig"; path = "Pods/Target Support Files/Pods-JustListen/Pods-JustListen.release.xcconfig"; sourceTree = "<group>"; };
 		6E3624964FF539CF0128CEEB /* Pods-JustListen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustListen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JustListen/Pods-JustListen.debug.xcconfig"; sourceTree = "<group>"; };
-		8FA1AB5A1D3D10A7003AF6A5 /* JustListenPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustListenPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FA1AB5A1D3D10A7003AF6A5 /* JustPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA1AB5D1D3D10A7003AF6A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FA1AB5F1D3D10A7003AF6A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8FA1AB621D3D10A7003AF6A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		8FA1AB5B1D3D10A7003AF6A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8FA1AB5A1D3D10A7003AF6A5 /* JustListenPop.app */,
+				8FA1AB5A1D3D10A7003AF6A5 /* JustPop.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,9 +93,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8FA1AB591D3D10A7003AF6A5 /* JustListenPop */ = {
+		8FA1AB591D3D10A7003AF6A5 /* JustPop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8FA1AB6C1D3D10A7003AF6A5 /* Build configuration list for PBXNativeTarget "JustListenPop" */;
+			buildConfigurationList = 8FA1AB6C1D3D10A7003AF6A5 /* Build configuration list for PBXNativeTarget "JustPop" */;
 			buildPhases = (
 				0AB7904859956CFCE2120F64 /* [CP] Check Pods Manifest.lock */,
 				8FA1AB561D3D10A7003AF6A5 /* Sources */,
@@ -108,9 +108,9 @@
 			);
 			dependencies = (
 			);
-			name = JustListenPop;
+			name = JustPop;
 			productName = JustListen;
-			productReference = 8FA1AB5A1D3D10A7003AF6A5 /* JustListenPop.app */;
+			productReference = 8FA1AB5A1D3D10A7003AF6A5 /* JustPop.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,6 +127,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 8VDNBLTP95;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -135,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8FA1AB551D3D10A7003AF6A5 /* Build configuration list for PBXProject "JustListenPop" */;
+			buildConfigurationList = 8FA1AB551D3D10A7003AF6A5 /* Build configuration list for PBXProject "JustPop" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -148,7 +149,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8FA1AB591D3D10A7003AF6A5 /* JustListenPop */,
+				8FA1AB591D3D10A7003AF6A5 /* JustPop */,
 			);
 		};
 /* End PBXProject section */
@@ -347,12 +348,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8VDNBLTP95;
 				INFOPLIST_FILE = JustListen/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tk.sebatyler.JustListenPop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JustListen/JustListen-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -376,6 +380,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tk.sebatyler.JustListenPop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JustListen/JustListen-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -385,7 +391,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8FA1AB551D3D10A7003AF6A5 /* Build configuration list for PBXProject "JustListenPop" */ = {
+		8FA1AB551D3D10A7003AF6A5 /* Build configuration list for PBXProject "JustPop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FA1AB6A1D3D10A7003AF6A5 /* Debug */,
@@ -394,7 +400,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8FA1AB6C1D3D10A7003AF6A5 /* Build configuration list for PBXNativeTarget "JustListenPop" */ = {
+		8FA1AB6C1D3D10A7003AF6A5 /* Build configuration list for PBXNativeTarget "JustPop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8FA1AB6D1D3D10A7003AF6A5 /* Debug */,
